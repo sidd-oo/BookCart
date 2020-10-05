@@ -28,7 +28,7 @@ header > button{
 }
 
 button{
-    margin-top:10px;
+    margin-top:30px;
     margin-bottom: 20px; 
     padding: px 15px;
     font-size: 30px;
@@ -49,3 +49,21 @@ button{
       box-shadow: 0 3px rgb(91, 218, 235);
       transform: translateY(4px);
   }
+
+
+/* Form  */
+#book-form{
+    margin-top: 20px;
+    color:white;
+    display:none;
+}
+
+#input-groups{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+input{
+    margin-left: 5px;
+}
