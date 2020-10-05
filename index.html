@@ -11,7 +11,7 @@
     <header> 
         <h1>BOOKCART</h1>
         <p>My Personal Books Collection<p>
-        <button type="button">Add Books</button>
+        <button type="button" id = "add-book" >Add Books</button>
 
         <form id = "book-form">
 
@@ -23,13 +23,13 @@
                 </div>   
 
                 <div class="inputs">
-                    <label for = "#autho">AUTHOR</label>
+                    <label for = "#author">AUTHOR</label>
                     <input type ="text" id = "author"> </input>
                 </div> 
 
                 <div class="inputs">
                     <label for = "#pages">PAGES</label>
-                    <input type ="text" id = pages> </input>
+                    <input type ="text" id = "pages"> </input>
                 </div> 
 
                 <div class="inputs">
@@ -39,7 +39,7 @@
 
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit" width = "10%">Submit</button>
 
         </form>
          
@@ -61,11 +61,12 @@
                     </tr>
                 </thead>
                 <tbody id="table-body">
-                    
+
                 </tbody>    
             </table>
         </div>  
     </main>
     </div>
+    <script src = "script/script.js"> </script>
 </body>
 </html>
