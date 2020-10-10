@@ -53,19 +53,29 @@ function addBooksToTable(){
                     <td> ${myLibrary[id].title}</td>
                     <td> ${myLibrary[id].author}</td>
                     <td> ${myLibrary[id].pages} </td>
-                    <td> <button type = "button" class = "toggle-read">read</button></td>
+                    <td> <button onclick = "toggleStatus(${id})" type = "button" class = "toggle-read">read</button></td>
                     <td> <button onclick = "removeBookFromTable(${id})" type = "button" class="remove-book">Remove</button></td>`;
       }else{
         newRow.innerHTML = `
                     <td> ${myLibrary[id].title}</td>
                     <td> ${myLibrary[id].author}</td>
                     <td> ${myLibrary[id].pages} </td>
-                    <td> <button type = "button" class = "toggle-read">unread</button></td>
+                    <td> <button onclick = "toggleStatus(${id})" type = "button" class = "toggle-read">unread</button></td>
                     <td> <button onclick = "removeBookFromTable(${id})" type = "button" class="remove-book">Remove</button></td>`;
       }
                           
       tableBody.appendChild(newRow);
       }
+}
+
+function toggleStatus(id){
+  if(myLibrary[id].read === true){
+    myLibrary[id].read = false;
+  }else{
+    myLibrary[id].read = true;
+  }
+  clearTable();
+  addBooksToTable();
 }
 
 function removeBookFromTable(id){
