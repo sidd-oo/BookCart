@@ -48,11 +48,22 @@ function addBooksToTable(){
       const newRow = document.createElement('tr');
       newRow.classList.add('table-body-element');
       newRow.setAttribute('data-id',`${id}`);
-      newRow.innerHTML = `<td> ${myLibrary[id].title}</td>
-                          <td> ${myLibrary[id].author}</td>
-                          <td> ${myLibrary[id].pages} </td>
-                          <td> ${myLibrary[id].read} </td>
-                          <td> <button onclick = "removeBookFromTable(${id})" type = "button" class="remove-book">Remove</button></td>`;
+      if(myLibrary[id].read == true){
+          newRow.innerHTML = `
+                    <td> ${myLibrary[id].title}</td>
+                    <td> ${myLibrary[id].author}</td>
+                    <td> ${myLibrary[id].pages} </td>
+                    <td> <button type = "button" class = "toggle-read">read</button></td>
+                    <td> <button onclick = "removeBookFromTable(${id})" type = "button" class="remove-book">Remove</button></td>`;
+      }else{
+        newRow.innerHTML = `
+                    <td> ${myLibrary[id].title}</td>
+                    <td> ${myLibrary[id].author}</td>
+                    <td> ${myLibrary[id].pages} </td>
+                    <td> <button type = "button" class = "toggle-read">unread</button></td>
+                    <td> <button onclick = "removeBookFromTable(${id})" type = "button" class="remove-book">Remove</button></td>`;
+      }
+                          
       tableBody.appendChild(newRow);
       }
 }
