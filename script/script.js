@@ -3,8 +3,7 @@ const bookForm = document.querySelector('#book-form');
 const submitForm = document.querySelector('#submit-btn');
 const tableBody = document.querySelector('#table-body');
 const clearAll = document.querySelector('#clear-all');
-const removeBook = document.querySelector('.remove-book')
-let id = 0;
+const removeBook = document.querySelector('.remove-book');
 
 let myLibrary = [];
 
@@ -44,7 +43,8 @@ function addBookToLibrary(event) {
 }
 
 function addBooksToTable(){
-    for(; id < myLibrary.length; id++){
+  clearTable();
+    for(let id = 0; id < myLibrary.length; id++){
       const newRow = document.createElement('tr');
       newRow.classList.add('table-body-element');
       newRow.setAttribute('data-id',`${id}`);
@@ -59,9 +59,11 @@ function addBooksToTable(){
 
 function removeBookFromTable(id){
   myLibrary.splice(id,1);
-  tableBody.innerHTML = "";
-  id = 0;
   addBooksToTable();
+}
+
+function clearTable(){
+  tableBody.innerHTML = "";
 }
 
 function emptyLibrary(){
