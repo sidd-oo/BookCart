@@ -3,6 +3,7 @@ const bookForm = document.querySelector('#book-form');
 const submitForm = document.querySelector('#submit-btn');
 const tableBody = document.querySelector('#table-body');
 const clearAll = document.querySelector('#clear-all');
+const removeBook = document.querySelector('.remove-book')
 let id = 0;
 
 let myLibrary = [];
@@ -46,13 +47,21 @@ function addBooksToTable(){
     for(; id < myLibrary.length; id++){
       const newRow = document.createElement('tr');
       newRow.classList.add('table-body-element');
+      newRow.setAttribute('data-id',`${id}`);
       newRow.innerHTML = `<td> ${myLibrary[id].title}</td>
                           <td> ${myLibrary[id].author}</td>
                           <td> ${myLibrary[id].pages} </td>
                           <td> ${myLibrary[id].read} </td>
-                          <td> <button type = "button" class="remove-book">Remove</button></td>`;
+                          <td> <button onclick = "removeBookFromTable(${id})" type = "button" class="remove-book">Remove</button></td>`;
       tableBody.appendChild(newRow);
       }
+}
+
+function removeBookFromTable(id){
+  myLibrary.splice(id,1);
+  tableBody.innerHTML = "";
+  id = 0;
+  addBooksToTable();
 }
 
 function emptyLibrary(){
@@ -61,7 +70,6 @@ function emptyLibrary(){
   }
   myLibrary = [];
 }
-
 newBookButton.addEventListener('click',showForm);
 submitForm.addEventListener('click',addBookToLibrary);
 submitForm.addEventListener('click',addBooksToTable);
